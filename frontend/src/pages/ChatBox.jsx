@@ -52,9 +52,10 @@ useEffect(() => {
         />
       </div>
 
-      <div className="flex-1 overflow-y-auto px-2 sm:px-5 pt-5 h-[calc(100vh-158px)]">
+      <div className="overflow-y-auto px-4 sm:px-5 pt-5 h-[calc(100vh-158px)] ">
         {/* Messages */}
-        <div className="max-w-2xl mx-auto h-full text-sm">
+        <div>
+        <div className="max-w-2xl mx-auto h-full text-sm ">
           {messages && messages.length > 0 ? (
             messages.map((msg, index) => (
               <div
@@ -66,11 +67,11 @@ useEffect(() => {
                 <div className="flex gap-1 items-end">
                   {/* Bot icon */}
                   <div
-                    className={`rounded-full bg-[#5257c8] p-2 ${
+                    className={`rounded-full bg-[#5257c8] p-2 max-w-8 max-h-8 ${
                       msg.sender === "user" ? "hidden" : ""
                     }`}
                   >
-                    <img className="w-4 h-4" src={bot} alt="Bot" />
+                    <img className="object-cover" src={bot} alt="Bot" />
                   </div>
 
                   {/* Message bubble */}
@@ -105,6 +106,7 @@ useEffect(() => {
               </h1>
             </div>
           )}
+        </div>
         </div>
       </div>
 

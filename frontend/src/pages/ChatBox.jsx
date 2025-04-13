@@ -51,8 +51,15 @@
 import React from "react";
 import Header from "../components/Header";
 import MessageInput from "../components/MessageInput";
+import bot from "../assets/bot.svg";
 
-const ChatBox = ({ messages, onSend, handleNewChat, chatSessions, handleSelectSession }) => {
+const ChatBox = ({
+  messages,
+  onSend,
+  handleNewChat,
+  chatSessions,
+  handleSelectSession,
+}) => {
   return (
     <div className="chatbox w-full h-screen">
       <div className="chatbox-header">
@@ -64,25 +71,36 @@ const ChatBox = ({ messages, onSend, handleNewChat, chatSessions, handleSelectSe
         />
       </div>
 
-      {/* Messages */}
       <div className="flex-1 overflow-y-auto px-2 sm:px-5 pt-5  h-[calc(100vh-158px)]">
-        <div className="max-w-2xl mx-auto h-full">
+        {/* Messages */}
+        <div className="max-w-2xl mx-auto h-full text-sm">
           {messages && messages.length > 0 ? (
             messages.map((msg, index) => (
               <div
                 key={index}
-                className={`flex mb-2 ${
+                className={`flex mb-5 ${
                   msg.sender === "user" ? "justify-end" : "justify-start"
                 }`}
               >
-                <div
-                  className={`px-4 py-2 rounded-lg max-w-[80%] sm:max-w-xs break-words ${
-                    msg.sender === "user"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-300 text-gray-900"
-                  }`}
-                >
-                  {msg.text}
+                <div className="flex gap-1 items-end">
+                  <div
+                    className={`rounded-full bg-[#5257c8] p-2 ${
+                      msg.sender === "user"
+                        ? "hidden"
+                        : ""
+                    }`}
+                  >
+                    <img className="w-4 h-4 " src={bot} alt="" />
+                  </div>
+                  <div
+                    className={`px-4 py-2 rounded-lg  break-words ${
+                      msg.sender === "user"
+                        ? "bg-[#5257c8] text-white"
+                        : "bg-violet-200 text-gray-900"
+                    }`}
+                  >
+                    {msg.text}
+                  </div>
                 </div>
               </div>
             ))

@@ -15,6 +15,8 @@ import avatar from "../assets/avatar.svg";
 
 import menu_icon from '../assets/menu_icon.png'
 import dropdown_icon from '../assets/dropdown_icon.png'
+import bot from '../assets/bot.svg'
+
 
 export default {
   logo,
@@ -30,5 +32,6 @@ export default {
   user, 
   avatar,
   menu_icon,
-  dropdown_icon
+  dropdown_icon,
+  bot
 };

@@ -16,7 +16,7 @@ const App = () => {
     const userMessage = { sender: "user", text: message };
   
     try {
-      const response = await fetch("https://json-server-samiudeens-projects.vercel.app/api/db");
+      const response = await fetch("https://sahab-payroll-samiudeen.vercel.app/api/db");
       // const response = await fetch('/api/db');
       // const response = await fetch(import.meta.env.VITE_API_URL + '/api/db');
 

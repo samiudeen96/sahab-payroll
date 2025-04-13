@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://json-server-samiudeens-projects.vercel.app',
+        target: 'https://sahab-payroll-samiudeen.vercel.app',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '/api'),
       },

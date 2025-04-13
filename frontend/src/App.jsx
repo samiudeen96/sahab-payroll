@@ -19,8 +19,6 @@ const App = () => {
       const response = await fetch(
         "https://sahab-payroll-samiudeen.vercel.app/api/db"
       );
-      // const response = await fetch('/api/db');
-      // const response = await fetch(import.meta.env.VITE_API_URL + '/api/db');
 
       const data = await response.json();
       console.log(data.questions);
@@ -102,17 +100,6 @@ const App = () => {
           chatHistory={messages}
         />
       </div>
-      {/* <div className="flex flex-col flex-1">
-        <Header
-          handleNewChat={handleNewChat}
-          chatSessions={chatSessions}
-          handleSelectSession={handleSelectSession}
-          messages={messages}
-        />
-        <div className="flex flex-col h-screen">
-          <ChatBox messages={messages} onSend={handleSendMessage} />
-        </div>
-      </div> */}
       <ChatBox
         messages={messages}
         onSend={handleSendMessage}

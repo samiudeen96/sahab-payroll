@@ -109,7 +109,7 @@ const App = () => {
           handleSelectSession={handleSelectSession}
           messages={messages}
         />
-        <div className="flex flex-col h-screen bg-amber-500">
+        <div className="flex flex-col h-screen">
           <ChatBox messages={messages} onSend={handleSendMessage} />
         </div>
       </div>

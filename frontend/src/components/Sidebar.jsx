@@ -10,7 +10,7 @@ const Sidebar = ({ onNewChat, chatHistory, setVisible }) => {
   };
 
   return (
-    <aside className="sm:w-80 bg-white sm:shadow-md p-4 flex flex-col text-sm">
+    <aside className="sm:w-80 bg-white sm:shadow-sm p-4 flex flex-col text-sm">
       {/* Header */}
       <div className="flex justify-between items-center mb-6">
         <div className="flex gap-2 items-center">

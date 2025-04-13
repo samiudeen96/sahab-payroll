@@ -102,7 +102,7 @@ const App = () => {
           chatHistory={messages}
         />
       </div>
-      <div className="flex flex-col flex-1">
+      {/* <div className="flex flex-col flex-1">
         <Header
           handleNewChat={handleNewChat}
           chatSessions={chatSessions}
@@ -112,7 +112,8 @@ const App = () => {
         <div className="flex flex-col h-screen">
           <ChatBox messages={messages} onSend={handleSendMessage} />
         </div>
-      </div>
+      </div> */}
+      <ChatBox messages={messages} onSend={handleSendMessage} />
     </div>
   );
 };

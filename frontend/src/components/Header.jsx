@@ -6,7 +6,7 @@ const Header = ({ messages, handleNewChat, chatSessions, handleSelectSession }) 
   const [visible, setVisible] = useState(false);
 
   return (
-    <div className="bg-white p-4 flex justify-between items-center sticky top-0 left-0 w-full md:static">
+    <div className="bg-white p-4 flex justify-between items-center">
       <h1 className="text-xl font-semibold">Najm Co-Pilot</h1>
       <div className="flex items-center gap-5">
         <button>

@@ -14,30 +14,31 @@ const App = () => {
   // Function to handle sending a message
   const handleSendMessage = async (message) => {
     const userMessage = { sender: "user", text: message };
-  
+
     try {
-      const response = await fetch("https://sahab-payroll-samiudeen.vercel.app/api/db");
+      const response = await fetch(
+        "https://sahab-payroll-samiudeen.vercel.app/api/db"
+      );
       // const response = await fetch('/api/db');
       // const response = await fetch(import.meta.env.VITE_API_URL + '/api/db');
 
       const data = await response.json();
       console.log(data.questions);
-      
-  
+
       const foundAnswer = data.questions.find(
         (item) => item.question.toLowerCase() === message.toLowerCase()
       );
-  
+
       const botResponse = {
         sender: "bot",
         text: foundAnswer
           ? foundAnswer.answer
           : "Sorry, I don't know the answer to that.",
       };
-  
+
       const newMessages = [...messages, userMessage, botResponse];
       setMessages(newMessages);
-  
+
       // Save to current session
       if (currentSessionIndex !== null) {
         const updatedSessions = [...chatSessions];
@@ -62,7 +63,6 @@ const App = () => {
       setMessages(newMessages);
     }
   };
-  
 
   // Handle new chat session
   const handleNewChat = () => {
@@ -113,7 +113,13 @@ const App = () => {
           <ChatBox messages={messages} onSend={handleSendMessage} />
         </div>
       </div> */}
-      <ChatBox messages={messages} onSend={handleSendMessage} />
+      <ChatBox
+        messages={messages}
+        onSend={handleSendMessage}
+        handleNewChat={handleNewChat}
+        chatSessions={chatSessions}
+        handleSelectSession={handleSelectSession}
+      />
     </div>
   );
 };

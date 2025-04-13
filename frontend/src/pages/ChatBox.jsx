@@ -52,15 +52,20 @@ import React from "react";
 import Header from "../components/Header";
 import MessageInput from "../components/MessageInput";
 
-const ChatBox = ({ messages, onSend }) => {
+const ChatBox = ({ messages, onSend, handleNewChat, chatSessions, handleSelectSession }) => {
   return (
     <div className="chatbox w-full h-screen">
       <div className="chatbox-header">
-        <Header />
+        <Header
+          messages={messages}
+          handleNewChat={handleNewChat}
+          chatSessions={chatSessions}
+          handleSelectSession={handleSelectSession}
+        />
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto px-2 sm:px-5 pt-4 sm:pt-5  h-[calc(100vh-158px)]">
+      <div className="flex-1 overflow-y-auto px-2 sm:px-5 pt-5  h-[calc(100vh-158px)]">
         <div className="max-w-2xl mx-auto h-full">
           {messages && messages.length > 0 ? (
             messages.map((msg, index) => (

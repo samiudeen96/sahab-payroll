@@ -43,7 +43,7 @@ useEffect(() => {
 
   return (
     <div className="chatbox w-full h-screen">
-      <div className="chatbox-header fixed z-20 top-0 w-full relative">
+      <div className="chatbox-header ">
         <Header
           messages={messages}
           handleNewChat={handleNewChat}

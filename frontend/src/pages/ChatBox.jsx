@@ -13,19 +13,19 @@ const ChatBox = ({
   const [loadedMessages, setLoadedMessages] = useState([]);
 
   useEffect(() => {
-    const savedLoaded = JSON.parse(localStorage.getItem("loadedMessages")) || [];
+    const savedLoaded =
+      JSON.parse(localStorage.getItem("loadedMessages")) || [];
     setLoadedMessages(savedLoaded);
   }, []);
 
   const bottomRef = useRef(null);
 
-useEffect(() => {
-  if (bottomRef.current) {
-    bottomRef.current.scrollIntoView({ behavior: "smooth" });
-  }
-}, [messages]);
+  useEffect(() => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
 
-  
   useEffect(() => {
     messages.forEach((msg, index) => {
       if (!loadedMessages.includes(index) && msg.sender !== "user") {
@@ -39,7 +39,6 @@ useEffect(() => {
       }
     });
   }, [messages, loadedMessages]);
-  
 
   return (
     <div className="chatbox w-full h-screen">
@@ -55,58 +54,57 @@ useEffect(() => {
       <div className="overflow-y-auto px-4 sm:px-5 pt-5 h-[calc(100vh-158px)] ">
         {/* Messages */}
         <div>
-        <div className="max-w-2xl mx-auto h-full text-sm ">
-          {messages && messages.length > 0 ? (
-            messages.map((msg, index) => (
-              <div
-                key={index}
-                className={`flex mb-5 ${
-                  msg.sender === "user" ? "justify-end" : "justify-start"
-                }`}
-              >
-                <div className="flex gap-1 items-end">
-                  {/* Bot icon */}
-                  <div
-                    className={`rounded-full bg-[#5257c8] p-2 max-w-8 max-h-8 ${
-                      msg.sender === "user" ? "hidden" : ""
-                    }`}
-                  >
-                    <img className="object-cover" src={bot} alt="Bot" />
-                  </div>
+          <div className="max-w-2xl mx-auto h-full text-sm ">
+            {messages && messages.length > 0 ? (
+              messages.map((msg, index) => (
+                <div
+                  key={index}
+                  className={`flex mb-5 ${
+                    msg.sender === "user" ? "justify-end" : "justify-start"
+                  }`}
+                >
+                  <div className="flex gap-1 items-end">
+                    {/* Bot icon */}
+                    <div
+                      className={`rounded-full bg-[#5257c8] p-2 max-w-8 max-h-8 ${
+                        msg.sender === "user" ? "hidden" : ""
+                      }`}
+                    >
+                      <img className="object-cover" src={bot} alt="Bot" />
+                    </div>
 
-                  {/* Message bubble */}
-                  <div
-                    className={`chat px-3 py-2 rounded-lg break-words ${
-                      msg.sender === "user"
-                        ? "bg-[#5257c8] text-white rounded-br-none"
-                        : "bg-violet-200 text-gray-900 rounded-bl-none"
-                    }`}
-                  >
-                    {msg.sender === "user" ? (
-                      msg.text
-                    ) : loadedMessages.includes(index) ? (
-                      <span>{msg.text}</span>
-                    ) : (
-                      <div className="flex gap-[3px] items-center">
-                        <div className="dot"></div>
-                        <div className="dot"></div>
-                        <div className="dot"></div>
-                      </div>
-                    )}
+                    {/* Message bubble */}
+                    <div
+                      className={`chat px-3 py-2 rounded-lg break-words ${
+                        msg.sender === "user"
+                          ? "bg-[#5257c8] text-white rounded-br-none"
+                          : "bg-violet-200 text-gray-900 rounded-bl-none"
+                      }`}
+                    >
+                      {msg.sender === "user" ? (
+                        msg.text
+                      ) : loadedMessages.includes(index) ? (
+                        <span>{msg.text}</span>
+                      ) : (
+                        <div className="flex gap-[3px] items-center">
+                          <div className="dot"></div>
+                          <div className="dot"></div>
+                          <div className="dot"></div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  
+                  <div ref={bottomRef} />
                 </div>
-                <div ref={bottomRef} />
-              </div>
-            ))
-          ) : (
-            <div className="h-full flex justify-center items-end pb-20">
-              <h1 className="text-xl sm:text-2xl font-semibold text-center">
-                Hi, I'm Najm Co-Pilot
-              </h1>
-            </div>
-          )}
-        </div>
+              ))
+            ) : (
+                <div className="flex justify-center items-end pb-20 h-[calc(100vh-180px)]">
+                  <h1 className="text-xl sm:text-2xl font-semibold text-center">
+                    Hi, I'm Najm Co-Pilot
+                  </h1>
+                </div>
+            )}
+          </div>
         </div>
       </div>
 
